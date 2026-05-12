@@ -1,0 +1,47 @@
+we got approved for the google for startups cloud program!
+
+many founders might not know that google is generous enough to give startups free credits to use their infra, from basic storage, cloud compute to their gen ai models (gemini, nano banana, etc.)
+
+there are a few tiers, and according to their website you can get up to $350k credits if you are series A. we are pre-funded so we got approved for the starter tier which is $2,000, still a significant amount for us to iterate our MVP!
+
+the whole application process took about 4 weeks. a lot of back and forth emails to provide additional information to the google team. i’m writing down the whole process here and all the info you need to provide, so hopefully it can save you some time if you decide to apply.
+
+things you need before applying:
+
+your company / app domain and an email from this domain, a regular email from google doesn’t work
+
+we were using zoho email with our own domain, but google requires you to have a “billing account” with them, and we couldn’t get it work with the zoho email, so we had to switch to a google workspace plan with our custom domain
+
+the initial application was quite simple, a few basic questions about the founder, the company, that’s it. one thing we didn’t realize was that google will try to understand your startup by studying your website, what your startup is about, what products do you offer, who the founders are, etc. you need to have all that info available on the website.
+
+after 3 days submitting our application, we got an initial email from google team asking for more information. at first it was vague what kind of information they needed, so we had to ask for clarification, they are only required to reply with 5 business days so expect receive only one email from them each week. if you prepare and supply all the information at once that will greatly speed up the process. we had about 4-5 back and forth emails which is why it took us 4 weeks to get approved.
+
+below is all the information we provided over the 4-week period, summarized below so you can save time for your application:
+
+make sure your startup website is not in stealth mode, make the site accessible via public url
+
+google team will not try your product, they need to understand what your product does by reading the landing page, so make sure you explain how your app works on the landing page
+
+if you have a product demo video or screenshots also include that
+
+include information about your team on your website, this is very important
+
+list key team members on the about us page, including: names and roles, relevant experience or background, or notable achievements, links to your profile like linkedin. they say this is not required but “strongly encouraged”
+
+for linkedin page, make sure you add your startup info to the “Experience” section so it’s publicly visible, and it has to be linked to your startup. we included our startup name, roles, our mission and a link to the startup website. this is to help google team verify our identity
+
+Explain what your product does: what are you building, and service you offer, demos, screenshots or features that help users understand what they can use your product for
+
+current stage of development like MVP or beta testing, etc.
+
+the google team was pretty fast after we provided all the info. about 2 days after we got an approval email. but the back and forth clarification emails took a lot of time.
+
+the $2k credits can be used for hosting, storage, gemini, tts, nano banana, etc. which is perfect if your startup is AI-heavy.
+
+hope this helps your google startups application, feel free to let me know if you have any questions.
+
+Good luck!
+
+from the above i have created linkedin profile as: https://www.linkedin.com/company/121794109/
+
+i have also updated screenshots for some two apps. ai resume and aipassport. 
