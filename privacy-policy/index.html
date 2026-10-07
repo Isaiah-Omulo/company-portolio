@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Oaknova Hub</title>
+    <meta name="description" content="Privacy Policy for Oaknova Hub, a multi-account content publishing platform operated by Oaknova Systems LTD.">
+
+    <!-- Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0F172A;         /* Slate Black / Modern Dark */
+            --primary-accent: #2563EB;  /* Deep Royal Blue */
+            --primary-light: #EFF6FF;   /* Soft Blue Highlight */
+            --background: #FFFFFF;
+            --surface: #FFFFFF;
+            --text-header: #0F172A;
+            --text-body: #475569;
+            --border: #E2E8F0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--background); color: var(--text-body); line-height: 1.7; }
+        header { background-color: var(--surface); padding: 22px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+        .container { max-width: 850px; margin: 0 auto; padding: 0 24px; }
+        .logo { font-weight: 800; font-size: 1.3rem; color: var(--text-header); text-decoration: none; display: flex; align-items: center; gap: 10px; letter-spacing: -0.5px; }
+        .logo-icon { color: var(--primary-accent); }
+        main { padding: 50px 0 100px; background-color: #F8FAFC; }
+        .policy-card { background: var(--surface); padding: 50px; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 4px 25px rgba(0, 0, 0, 0.03); }
+        h1 { font-weight: 800; font-size: 2.4rem; color: var(--text-header); margin-bottom: 8px; letter-spacing: -1px; }
+        .last-updated { color: var(--text-body); font-size: 0.95rem; margin-bottom: 35px; display: block; opacity: 0.75; }
+        h2 { font-weight: 700; font-size: 1.35rem; color: var(--text-header); margin-top: 38px; margin-bottom: 16px; border-left: 4px solid var(--primary-accent); padding-left: 14px; }
+        p { margin-bottom: 18px; }
+        ul { margin-bottom: 20px; padding-left: 25px; }
+        li { margin-bottom: 10px; }
+        strong { color: var(--text-header); }
+        a { color: var(--primary-accent); text-decoration: none; font-weight: 600; }
+        a:hover { text-decoration: underline; }
+        .highlight-box { background-color: var(--primary-light); padding: 24px; margin: 28px 0; border-radius: 14px; border: 1px solid rgba(37, 99, 235, 0.25); }
+        .highlight-title { font-weight: 800; color: var(--primary-accent); display: flex; align-items: center; gap: 8px; margin-bottom: 8px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.8px; }
+        footer { text-align: center; padding: 40px 0; color: var(--text-body); font-size: 0.95rem; border-top: 1px solid var(--border); background: var(--surface); }
+        @media (max-width: 600px) { .policy-card { padding: 30px 20px; } h1 { font-size: 2rem; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="https://www.oaknovasystems.com" class="logo">
+                <svg class="logo-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+                Oaknova Hub
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="policy-card">
+                <h1>Privacy Policy</h1>
+                <span class="last-updated">Effective Date: October 7, 2026</span>
+
+                <p>Welcome to <strong>Oaknova Hub</strong> (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;), operated by <strong>Oaknova Systems LTD</strong>. Oaknova Hub provides a unified publishing platform that allows authorized organization managers and creators to schedule and publish video and photo content directly to connected social media accounts, including TikTok. This Privacy Policy outlines our data collection, security, and lifecycle practices.</p>
+
+                <h2>1. Information We Collect Through TikTok API</h2>
+                <p>Oaknova Hub requests only minimal permissions necessary to facilitate direct posting and account management via the official TikTok Developer APIs:</p>
+                <ul>
+                    <li><strong>Account Identification:</strong> When you authorize Oaknova Hub via TikTok OAuth 2.0 (Login Kit), we receive your unique TikTok <code>open_id</code>, <code>union_id</code>, display name, and avatar image URL. This information is stored exclusively to identify connected profiles in our multi-account dashboard.</li>
+                    <li><strong>Authentication Credentials:</strong> Encrypted access tokens and refresh tokens returned by TikTok's authentication server, enabling scheduled publishing without repeated manual login prompts.</li>
+                    <li><strong>Creator Settings &amp; Preferences:</strong> Temporary responses from the TikTok Creator Info endpoint (e.g., allowed privacy modes, duet/stitch permissions) to ensure user-selected publishing parameters comply with account settings.</li>
+                    <li><strong>Publishing Logs:</strong> Media upload references, publish IDs, captions, and publication status (Processing, Success, Failed) for status monitoring and operational auditing.</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <span class="highlight-title">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                        Strict Scope Minimization
+                    </span>
+                    <p>We <strong>do not</strong> request, read, or store your private messages, contact lists, financial details, or unrelated browsing activity. Oaknova Hub never performs actions on your TikTok account that you have not explicitly configured and initiated from our publishing dashboard.</p>
+                </div>
+
+                <h2>2. How We Use Stored Information</h2>
+                <p>Collected information is used exclusively to:</p>
+                <ul>
+                    <li>Authenticate authorized users and display active connected TikTok channels in the interface.</li>
+                    <li>Publish creator-specified media (videos, single photos, and carousels) to TikTok via the official Content Posting API.</li>
+                    <li>Monitor media processing progress and present publication status to administrators.</li>
+                    <li>Perform automated OAuth token refresh cycles in compliance with TikTok's developer guidelines.</li>
+                </ul>
+
+                <h2>3. Third-Party Data Sharing</h2>
+                <p>Oaknova Hub does not sell, lease, or monetize your account details or publishing data. Data is shared strictly with:</p>
+                <ul>
+                    <li><strong>TikTok (ByteDance Ltd.):</strong> To transmit media files, metadata, and status inquiries through official API endpoints (<code>open.tiktokapis.com</code>).</li>
+                    <li><strong>Oaknova Systems Cloud Infrastructure:</strong> Secure virtual server hosting located at <code>api.oaknovasystems.com</code> equipped with SSL encryption and encrypted database storage.</li>
+                </ul>
+
+                <h2>4. Data Retention and Account Revocation</h2>
+                <p>You maintain complete control over connected accounts at all times:</p>
+                <ul>
+                    <li><strong>Revoking Access:</strong> You can disconnect any TikTok account directly inside the Oaknova Hub dashboard by selecting <strong>Disconnect Account</strong>. Upon disconnection, all associated access tokens and cached profile identifiers are permanently deleted from our database.</li>
+                    <li><strong>Platform-Side Revocation:</strong> You can also revoke Oaknova Hub's permissions at any time through your official TikTok mobile app under <strong>Settings and Privacy &rarr; Security &rarr; Manage App Permissions</strong>.</li>
+                    <li><strong>Media Purging:</strong> Staging media files hosted for pull-based direct publishing are purged automatically after publication confirmation.</li>
+                </ul>
+
+                <h2>5. Contact Us</h2>
+                <p>For inquiries, questions, or data deletion requests regarding Oaknova Hub, contact our engineering team:</p>
+                <ul>
+                    <li>Email: <a href="mailto:contact@oaknovasystems.com">contact@oaknovasystems.com</a></li>
+                    <li>Company: <strong>Oaknova Systems LTD</strong></li>
+                    <li>Website: <a href="https://www.oaknovasystems.com" target="_blank" rel="noopener">www.oaknovasystems.com</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="year"></span> Oaknova Systems LTD. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
