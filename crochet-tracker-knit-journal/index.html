@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crochet Tracker &amp; Knit Journal | Row Counter &amp; Yarn Stash Manager</title>
+  <meta name="description" content="The all-in-one crochet and knitting companion: multi-row counters, built-in PDF pattern reader, yarn stash inventory, and progress photo journal. Available on iOS and Android.">
+
+  <!-- Fonts: Plus Jakarta Sans / Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #FDFBF7;              /* Warm Linen / Cream */
+      --card-bg: #FFFFFF;
+      --card-border: #EFE8DE;
+      --terracotta: #C86D51;      /* Cozy Terracotta Clay */
+      --terracotta-hover: #B55B40;
+      --sage: #4E7057;            /* Soft Herbal Sage */
+      --sage-light: #EBF2ED;
+      --text-header: #261D1A;     /* Deep Warm Espresso */
+      --text-body: #635853;       /* Muted Warm Slate */
+      --btn-store: #261D1A;
+      --btn-store-hover: #3E312C;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-body);
+      line-height: 1.65;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    header {
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--card-border);
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-header);
+      text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      background: #F8EDE8;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--terracotta);
+    }
+
+    .brand-pill {
+      background: var(--sage-light);
+      color: var(--sage);
+      border: 1px solid rgba(78, 112, 87, 0.2);
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 70px 24px 40px;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #F7EFE7;
+      border: 1px solid #EADBCE;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--terracotta);
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.4rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+      line-height: 1.18;
+      color: var(--text-header);
+      margin-bottom: 20px;
+    }
+
+    h1 span {
+      font-style: italic;
+      color: var(--terracotta);
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-body);
+      max-width: 700px;
+      margin: 0 auto 36px;
+    }
+
+    /* Primary Hero Buttons */
+    .hero-cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 60px;
+    }
+
+    .btn-store {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--btn-store);
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 22px;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(38, 29, 26, 0.12);
+      transition: all 0.2s ease;
+    }
+
+    .btn-store:hover {
+      background: var(--btn-store-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(38, 29, 26, 0.18);
+    }
+
+    .btn-store svg {
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+    }
+
+    .btn-store-text {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .btn-store-text span:first-child {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      opacity: 0.75;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+
+    .btn-store-text span:last-child {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      line-height: 1.1;
+    }
+
+    /* Features Grid */
+    .features-section {
+      max-width: 1160px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+      width: 100%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--text-header);
+      margin-bottom: 40px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 32px;
+      display: flex;
+      gap: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .feature-icon-box {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .icon-counter { background: #F8EDE8; color: var(--terracotta); }
+    .icon-pdf { background: #EBF2ED; color: var(--sage); }
+    .icon-stash { background: #F5EEF8; color: #8E44AD; }
+    .icon-photo { background: #FEF6E9; color: #D97706; }
+
+    .feature-text h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-header);
+      margin-bottom: 8px;
+    }
+
+    .feature-text p {
+      font-size: 0.95rem;
+      color: var(--text-body);
+      line-height: 1.6;
+    }
+
+    /* Maker Quote / Showcase */
+    .showcase-banner {
+      background: #FAF3EC;
+      border: 1px solid #EEDBCE;
+      border-radius: 24px;
+      max-width: 1100px;
+      margin: 0 auto 80px;
+      padding: 48px 32px;
+      text-align: center;
+    }
+
+    .showcase-banner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      color: var(--text-header);
+      margin-bottom: 12px;
+    }
+
+    .showcase-banner p {
+      max-width: 680px;
+      margin: 0 auto 28px;
+      color: var(--text-body);
+      font-size: 1.05rem;
+    }
+
+    .craft-types {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .craft-tag {
+      background: #fff;
+      border: 1px solid #EADBCE;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-header);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      border-top: 1px solid var(--card-border);
+      padding: 36px 24px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #8C8078;
+      background: #FAF7F2;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: var(--text-body);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--terracotta); }
+
+    @media (max-width: 800px) {
+      .features-grid { grid-template-columns: 1fr; }
+      .hero-cta-buttons { flex-direction: column; max-width: 280px; margin: 0 auto 40px; }
+      h1 { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="https://www.oaknovasystems.com" class="brand">
+      <div class="brand-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M8 12s1.5-2 4-2 4 2 4 2"></path>
+          <path d="M9 16s1-1 3-1 3 1 3 1"></path>
+        </svg>
+      </div>
+      Crochet Tracker &amp; Knit Journal
+    </a>
+    <span class="brand-pill">Oaknova Systems LTD</span>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-badge">
+      ✨ Never Lose Count of a Stitch or Skein Again
+    </div>
+    <h1>The Modern Companion for <span>Crochet &amp; Knitting</span> Makers</h1>
+    <p class="hero-subtitle">
+      Stop juggling handwritten scrap paper, multiple row apps, and lost PDF patterns. Keep your row counters, PDF pattern viewer, yarn stash inventory, and project timelines organized in one place.
+    </p>
+
+    <div class="hero-cta-buttons">
+      <!-- Apple App Store -->
+      <a href="https://apps.apple.com/in/app/crotchet-tracker-and-journal/id6787714570" target="_blank" rel="noopener" class="btn-store">
+        <svg viewBox="0 0 384 512" fill="currentColor">
+          <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+        </svg>
+        <div class="btn-store-text">
+          <span>Download on the</span>
+          <span>Apple App Store</span>
+        </div>
+      </a>
+
+      <!-- Google Play Store -->
+      <a href="https://play.google.com/store/apps/details?id=com.oaknovasystems.crotchetjournal" target="_blank" rel="noopener" class="btn-store">
+        <svg viewBox="0 0 512 512" fill="currentColor">
+          <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
+        </svg>
+        <div class="btn-store-text">
+          <span>Get it on</span>
+          <span>Google Play</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <h2 class="section-title">Designed for Everyday Fiber Artists</h2>
+
+    <div class="features-grid">
+      <!-- Feature 1: Row Counter -->
+      <div class="feature-card">
+        <div class="feature-icon-box icon-counter">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+        </div>
+        <div class="feature-text">
+          <h3>Smart Multi-Row Counter</h3>
+          <p>Simple tap-to-count with custom row goals and section repeats. Run separate counters simultaneously for sleeves, body, and repeats without losing your place.</p>
+        </div>
+      </div>
+
+      <!-- Feature 2: PDF Pattern Viewer -->
+      <div class="feature-card">
+        <div class="feature-icon-box icon-pdf">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        </div>
+        <div class="feature-text">
+          <h3>Built-in PDF Pattern Viewer</h3>
+          <p>Import and view your digital PDF patterns directly inside the app. Read charts and diagrams while keeping your active row counter visible on-screen.</p>
+        </div>
+      </div>
+
+      <!-- Feature 3: Yarn Stash -->
+      <div class="feature-card">
+        <div class="feature-icon-box icon-stash">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><path d="M4.93 4.93l14.14 14.14"></path><path d="M14.83 9.17l-5.66 5.66"></path></svg>
+        </div>
+        <div class="feature-text">
+          <h3>Yarn Stash &amp; Tools Inventory</h3>
+          <p>Catalogue your yarn collection by brand, colorway, weight, dye lot, yardage, and remaining skeins. Record your hook and needle sizes for every project.</p>
+        </div>
+      </div>
+
+      <!-- Feature 4: Progress Journal -->
+      <div class="feature-card">
+        <div class="feature-icon-box icon-photo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+        </div>
+        <div class="feature-text">
+          <h3>Visual Progress Journal &amp; Time Log</h3>
+          <p>Photograph your work at every stage, from cast-on to finished piece. Log crafting session hours to accurately price and track your handmade creations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Showcase Banner -->
+  <div class="showcase-banner">
+    <h2>Built for Everything You Make</h2>
+    <p>From quick weekend granny squares to complex intricate sweaters, organize your projects seamlessly.</p>
+    <div class="craft-types">
+      <span class="craft-tag">🧸 Amigurumi</span>
+      <span class="craft-tag">🧶 Sweaters &amp; Cardigans</span>
+      <span class="craft-tag">🌸 Granny Squares</span>
+      <span class="craft-tag">🧣 Scarves &amp; Shawls</span>
+      <span class="craft-tag">🧦 Socks &amp; Slippers</span>
+      <span class="craft-tag">🧺 Blankets &amp; Throws</span>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.oaknovasystems.com">Oaknova Systems</a>
+      <a href="https://www.oaknovasystems.com/terms/">Terms of Service</a>
+      <a href="https://www.oaknovasystems.com/privacy-policy/">Privacy Policy</a>
+    </div>
+    <p>&copy; 2026 Oaknova Systems LTD. All rights reserved. Crochet Tracker &amp; Knit Journal is a proprietary mobile software application developed by Oaknova Systems LTD.</p>
+  </footer>
+
+</body>
+</html>
