@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Multi Speaker TTS: Voices | Conversational Audio &amp; Podcast Studio</title>
+  <meta name="description" content="Turn scripts into multi-speaker podcasts and solo narrations with natural AI neural voices. Seamless dialogue stitching for iOS and Android.">
+
+  <!-- Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #090D16;
+      --card-bg: #111726;
+      --card-border: #1F293D;
+      --purple: #8B5CF6;
+      --purple-glow: rgba(139, 92, 246, 0.25);
+      --cyan: #06B6D4;
+      --cyan-glow: rgba(6, 182, 212, 0.25);
+      --text: #F8FAFC;
+      --text-muted: #94A3B8;
+      --btn-store: #1E293B;
+      --btn-store-hover: #334155;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .brand-pill {
+      background: rgba(139, 92, 246, 0.15);
+      color: #A78BFA;
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 70px 24px 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #E2E8F0;
+      margin-bottom: 24px;
+    }
+
+    .hero-badge span {
+      width: 8px;
+      height: 8px;
+      background: var(--purple);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--purple);
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #FFFFFF 40%, #A78BFA 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto 40px;
+    }
+
+    .hero-cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 60px;
+    }
+
+    /* Store Buttons */
+    .btn-store {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--btn-store);
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 22px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.2s ease;
+    }
+
+    .btn-store:hover {
+      background: var(--btn-store-hover);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .btn-store svg {
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+    }
+
+    .btn-store-text {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .btn-store-text span:first-child {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+      font-weight: 600;
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+
+    .btn-store-text span:last-child {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      line-height: 1.1;
+    }
+
+    /* Dialogue Simulation Showcase */
+    .demo-dialogue {
+      max-width: 720px;
+      margin: 0 auto 70px;
+      background: #0E1424;
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .dialogue-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dialogue-title span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10B981;
+    }
+
+    .speech-bubble {
+      padding: 14px 18px;
+      border-radius: 14px;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      text-align: left;
+    }
+
+    .bubble-speaker-a {
+      background: rgba(139, 92, 246, 0.12);
+      border-left: 3px solid var(--purple);
+    }
+
+    .bubble-speaker-b {
+      background: rgba(6, 182, 212, 0.12);
+      border-left: 3px solid var(--cyan);
+    }
+
+    .speaker-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .label-a { color: #A78BFA; }
+    .label-b { color: #22D3EE; }
+
+    /* Features Grid */
+    .features-section {
+      max-width: 1160px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+      width: 100%;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      border-color: rgba(139, 92, 246, 0.3);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .icon-multispeaker { background: rgba(139, 92, 246, 0.15); color: var(--purple); }
+    .icon-casting { background: rgba(6, 182, 212, 0.15); color: var(--cyan); }
+    .icon-export { background: rgba(16, 185, 129, 0.15); color: #10B981; }
+
+    .feature-card h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .feature-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      border-top: 1px solid var(--card-border);
+      padding: 36px 24px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      background: #060910;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: #fff; }
+
+    @media (max-width: 800px) {
+      .features-grid { grid-template-columns: 1fr; }
+      .hero-cta-buttons { flex-direction: column; max-width: 280px; margin: 0 auto 40px; }
+      h1 { font-size: 2.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="https://www.oaknovasystems.com" class="brand">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+        <line x1="12" y1="19" x2="12" y2="22"></line>
+      </svg>
+      AI Multi Speaker TTS
+    </a>
+    <span class="brand-pill">Oaknova Systems LTD</span>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-badge">
+      <span></span> Neural Voice Dialogue &amp; Podcast Studio
+    </div>
+    <h1>Produce Multi-Voice AI Podcasts &amp; Solo Audio in Minutes</h1>
+    <p class="hero-subtitle">
+      Assign unique neural voices to different roles in a minimalist block editor. Stitch dialogues, solo narrations, and audiobooks into studio-quality MP3 tracks instantly.
+    </p>
+
+    <div class="hero-cta-buttons">
+      <!-- Apple App Store -->
+      <a href="https://apps.apple.com/in/app/ai-multi-speaker-tts-voice/id6782562879" target="_blank" rel="noopener" class="btn-store">
+        <svg viewBox="0 0 384 512" fill="currentColor">
+          <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+        </svg>
+        <div class="btn-store-text">
+          <span>Download on the</span>
+          <span>Apple App Store</span>
+        </div>
+      </a>
+
+      <!-- Google Play Store -->
+      <a href="https://play.google.com/store/apps/details?id=com.oaknovasystems.ai_multispeaker_tts" target="_blank" rel="noopener" class="btn-store">
+        <svg viewBox="0 0 512 512" fill="currentColor">
+          <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
+        </svg>
+        <div class="btn-store-text">
+          <span>Get it on</span>
+          <span>Google Play</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Live Dialogue UI Simulation -->
+    <div class="demo-dialogue">
+      <div class="dialogue-title">
+        <span></span> Live Block Editor Preview
+      </div>
+      <div class="speech-bubble bubble-speaker-a">
+        <div class="speaker-label label-a">
+          <span>Speaker A • Marcus (US Neural)</span>
+          <span>00:03</span>
+        </div>
+        "Welcome back everyone. Today we are exploring how AI voice synthesis is transforming audio drama and conversational podcasts."
+      </div>
+      <div class="speech-bubble bubble-speaker-b">
+        <div class="speaker-label label-b">
+          <span>Speaker B • Elena (UK Studio)</span>
+          <span>00:04</span>
+        </div>
+        "Exactly, Marcus. Creators can now draft full back-and-forth dialogue scripts right from their phone without recording a single line in a vocal booth."
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features Grid -->
+  <section class="features-section">
+    <div class="features-grid">
+      <!-- Feature 1 -->
+      <div class="feature-card">
+        <div class="feature-icon icon-multispeaker">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        </div>
+        <h3>Solo &amp; Conversational Modes</h3>
+        <p>Switch between solo voiceovers and multi-character back-and-forth scripts. Our dynamic engine stitches separate speaker blocks into a unified audio file on the fly.</p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="feature-card">
+        <div class="feature-icon icon-casting">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        </div>
+        <h3>Global Casting Board</h3>
+        <p>Filter natural neural voices across regions, languages, genders, and tones. Test scripts with real-time audio previews before rendering full episodes.</p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="feature-card">
+        <div class="feature-icon icon-export">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        </div>
+        <h3>Studio MP3 Cloud Export</h3>
+        <p>Compile, listen, and download high-bitrate MP3 files directly from the built-in media player. Perfect for YouTube videos, podcast feeds, and e-learning courses.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.oaknovasystems.com">Oaknova Systems</a>
+      <a href="https://www.oaknovasystems.com/terms/">Terms of Service</a>
+      <a href="https://www.oaknovasystems.com/privacy-policy/">Privacy Policy</a>
+    </div>
+    <p>&copy; 2026 Oaknova Systems LTD. All rights reserved. AI Multi Speaker TTS is a proprietary mobile audio software product of Oaknova Systems LTD.</p>
+  </footer>
+
+</body>
+</html>
